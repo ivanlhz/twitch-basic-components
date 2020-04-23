@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Tasks from './components/tasks'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  regInput = React.createRef()
+
+  state = {
+    userName: 'Ivanlhz !!',
+    msg:'',
+    list: []
+  }
+
+  clickHandler = () => {
+    const _list = this.state.list;
+    _list.push(this.regInput.current.value)
+
+    this.setState({list: _list})
+  }
+
+  textChange = (event) => {
+    this.setState({msg: event.target.value})
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <p>
+            {this.state.userName}
+          </p>
+          <Tasks data={this.state.list} />
+          <input ref={this.regInput} type="text" />
+          <button type="button" onClick={this.clickHandler}>Guardar elemento</button>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
