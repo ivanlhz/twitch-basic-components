@@ -12,7 +12,7 @@ Este es un proyecto que hemos creado en el streaming  https://twitch.tv/ivanlhz 
 ### App
 Es el componente principal el cual agrega a una lista de elementos el texto que vamos introduciendo en el input tras pulsar el botón **Guardar elemento**.
 
-## Task
+### Tasks
 Muestra un array de elementos que le llegan por props.
 
 ## :fire:Reto a Realizar
